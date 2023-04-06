@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Polls</title>
+</head>
+<body>
+    <h1>Enquetes Python e Django</h1>
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <li><h4><a href="{% url 'polls:vote' question.id %}">{{ question.question_text }}</a></h4></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Não há enquetes disponíveis.</p>
+{% endif %}
+</body>
+</html>
